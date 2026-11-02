@@ -24,3 +24,10 @@ Gruppenbesuch → Ticket kaufen → Mein Ticket sowie Lageplan ↔ Fütterung.
 2. In `src/app/_layout.tsx` ein `Stack.Screen` mit gleichem `name` und Titel eintragen.
 3. In `src/app/index.tsx` einen `Link` mit `href="/dateiname"` ergänzen.
 4. `npx tsc --noEmit` ausführen: Typed Routes melden jeden `href`, der zu keiner Datei passt.
+
+## Flow in Iteration 1 (6.2)
+
+- Hauptflow: Start → Ticket kaufen (Zähler, E-Mail-Feld, Button) → Mein Ticket (Anzahl, Total, «Ticket zeigen»).
+- Gruppenbesuch (Feld, Zähler) → Ticket kaufen (Anzahl als Parameter vorbelegt).
+- Lageplan → Fütterung (Switch «Erinnerung», Liste mit Link zu `programm/[id]`).
+- Jeder Screen hat den Zurück-Pfeil des Stacks, zusätzlich Buttons mit `router.back()` bzw. «Zurück zum Start».

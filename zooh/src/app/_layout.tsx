@@ -9,6 +9,7 @@ export default function RootLayout() {
       <Stack.Screen name="gruppenbesuch" options={{ title: "Gruppenbesuch" }} />
       <Stack.Screen name="lageplan" options={{ title: "Lageplan" }} />
       <Stack.Screen name="fuetterung" options={{ title: "Fütterung" }} />
+      <Stack.Screen name="programm/[id]" options={{ title: "Programmpunkt" }} />
     </Stack>
   );
 }

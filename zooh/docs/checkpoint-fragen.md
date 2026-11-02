@@ -22,3 +22,27 @@ es ein Stack mit Titel pro Screen und Zurück-Pfeil in der Kopfzeile.
 Solange Fragen zum Flow offen sind, soll nur Struktur und Ablauf getestet werden. Graue Platzhalter
 und Stichworte lenken nicht ab. Mit fertiger Gestaltung würden Testpersonen später Farben und Bilder
 kommentieren statt den Ablauf, und wir würden Zeit in Details stecken, die sich nach dem Test noch ändern.
+
+---
+
+# Checkpoint-Fragen 6.2
+
+**1. Wann verwenden Sie `Link`, wann `router.push`, und wie kommt ein Wert auf die nächste Seite?**
+`Link` ist ein Textlink, der direkt angetippt wird (z. B. Startscreen, Programmliste). `router.push`
+braucht man, wenn der Wechsel erst nach einer Aktion oder Prüfung passiert, etwa nach «Jetzt bezahlen».
+Ein Wert reist als Parameter mit: `router.push({ pathname: "/tickets", params: { total: String(total) } })`.
+Die Zielseite liest ihn mit `useLocalSearchParams()`. Parameter sind immer Text, daher `String(...)`.
+
+**2. Warum ist das Total kein State, und was wäre die Folge?**
+Gespeichert wird nur, was die Person eingibt (Anzahl). Das Total ist daraus berechenbar
+(`anzahl * PREIS`) und wird bei jedem Rendern neu abgeleitet. Ein eigener State fürs Total müsste bei
+jeder Änderung separat nachgeführt werden; wird das vergessen, laufen Anzahl und Total auseinander
+und die Person sieht einen falschen Betrag.
+
+**3. Wozu dient das Label, wenn das Feld schon einen Platzhalter hat?**
+Der Platzhalter ist nur ein Beispiel («name@beispiel.ch») und verschwindet beim Tippen. Das Label bleibt
+sichtbar und sagt, was in das Feld gehört, auch während und nach der Eingabe (und für Screenreader).
+
+**4. Welche zwei Grundsätze der ISO 9241-110 haben Sie im Walkthrough geprüft?**
+Selbstbeschreibungsfähigkeit (jeder Screen sagt, wo man ist und was man tun kann) und Fehlertoleranz
+(ein Fehler kostet wenig Aufwand und wird verständlich erklärt).
